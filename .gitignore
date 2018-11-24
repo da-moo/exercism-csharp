@@ -1,0 +1,11 @@
+# exercism config
+**/.exercism/
+
+# dependencies
+
+# binaries
+**/bin/
+**/obj/
+
+# misc
+.DS_Store
