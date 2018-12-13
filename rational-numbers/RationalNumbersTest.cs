@@ -130,55 +130,55 @@ public class RationalNumbersTest
         Assert.Equal(new RationalNumber(0, 1), new RationalNumber(0, 1).Abs());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Raise_a_positive_rational_number_to_a_positive_integer_power()
     {
         Assert.Equal(new RationalNumber(1, 8), new RationalNumber(1, 2).Exprational(3));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Raise_a_negative_rational_number_to_a_positive_integer_power()
     {
         Assert.Equal(new RationalNumber(-1, 8), new RationalNumber(-1, 2).Exprational(3));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Raise_zero_to_an_integer_power()
     {
         Assert.Equal(new RationalNumber(0, 1), new RationalNumber(0, 1).Exprational(5));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Raise_one_to_an_integer_power()
     {
         Assert.Equal(new RationalNumber(1, 1), new RationalNumber(1, 1).Exprational(4));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Raise_a_positive_rational_number_to_the_power_of_zero()
     {
         Assert.Equal(new RationalNumber(1, 1), new RationalNumber(1, 2).Exprational(0));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Raise_a_negative_rational_number_to_the_power_of_zero()
     {
         Assert.Equal(new RationalNumber(1, 1), new RationalNumber(-1, 2).Exprational(0));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Raise_a_real_number_to_a_positive_rational_number()
     {
         Assert.Equal(16, 8.Expreal(new RationalNumber(4, 3)), precision: 0);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Raise_a_real_number_to_a_negative_rational_number()
     {
         Assert.Equal(0.3333333, 9.Expreal(new RationalNumber(-1, 2)), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Raise_a_real_number_to_a_zero_rational_number()
     {
         Assert.Equal(1, 2.Expreal(new RationalNumber(0, 1)), precision: 0);

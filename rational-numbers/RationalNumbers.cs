@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
 
 public static class RealNumberExtension
 {
     public static double Expreal(this int realNumber, RationalNumber r)
     {
-        throw new NotImplementedException("You need to implement this extension method.");
+        return r.Expreal(realNumber);
     }
 }
 
@@ -87,12 +86,14 @@ public struct RationalNumber
 
     public RationalNumber Exprational(int power)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        power = Math.Abs(power);
+        return new RationalNumber((int) Math.Pow(_numerator, power),
+            (int) Math.Pow(_denominator,power)).Reduce();
     }
 
     public double Expreal(int baseNumber)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        return NthRoot(Math.Pow(baseNumber, _numerator), _denominator);
     }
 
     private static int gcd(int a, int b)
@@ -104,5 +105,10 @@ public struct RationalNumber
             a = b;
             b = remainder;
         }
+    }
+
+    private static double NthRoot(double number, int root)
+    {
+        return Math.Pow(number, 1.0/root);
     }
 }
