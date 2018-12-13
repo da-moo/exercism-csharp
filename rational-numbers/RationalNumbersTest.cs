@@ -52,61 +52,61 @@ public class RationalNumbersTest
         Assert.Equal(new RationalNumber(0, 1), new RationalNumber(1, 2) - (new RationalNumber(1, 2)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiply_two_positive_rational_numbers()
     {
         Assert.Equal(new RationalNumber(1, 3), new RationalNumber(1, 2) * (new RationalNumber(2, 3)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiply_a_negative_rational_number_by_a_positive_rational_number()
     {
         Assert.Equal(new RationalNumber(-1, 3), new RationalNumber(-1, 2) * (new RationalNumber(2, 3)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiply_two_negative_rational_numbers()
     {
         Assert.Equal(new RationalNumber(1, 3), new RationalNumber(-1, 2) * (new RationalNumber(-2, 3)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiply_a_rational_number_by_its_reciprocal()
     {
         Assert.Equal(new RationalNumber(1, 1), new RationalNumber(1, 2) * (new RationalNumber(2, 1)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiply_a_rational_number_by_1()
     {
         Assert.Equal(new RationalNumber(1, 2), new RationalNumber(1, 2) * (new RationalNumber(1, 1)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Multiply_a_rational_number_by_0()
     {
         Assert.Equal(new RationalNumber(0, 1), new RationalNumber(1, 2) * (new RationalNumber(0, 1)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Divide_two_positive_rational_numbers()
     {
         Assert.Equal(new RationalNumber(3, 4), new RationalNumber(1, 2) / (new RationalNumber(2, 3)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Divide_a_positive_rational_number_by_a_negative_rational_number()
     {
         Assert.Equal(new RationalNumber(-3, 4), new RationalNumber(1, 2) / (new RationalNumber(-2, 3)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Divide_two_negative_rational_numbers()
     {
         Assert.Equal(new RationalNumber(3, 4), new RationalNumber(-1, 2) / (new RationalNumber(-2, 3)));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Divide_a_rational_number_by_1()
     {
         Assert.Equal(new RationalNumber(1, 2), new RationalNumber(1, 2) / (new RationalNumber(1, 1)));
@@ -184,45 +184,39 @@ public class RationalNumbersTest
         Assert.Equal(1, 2.Expreal(new RationalNumber(0, 1)), precision: 0);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Reduce_a_positive_rational_number_to_lowest_terms()
     {
         Assert.Equal(new RationalNumber(1, 2), new RationalNumber(2, 4).Reduce());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Reduce_a_negative_rational_number_to_lowest_terms()
     {
         Assert.Equal(new RationalNumber(-2, 3), new RationalNumber(-4, 6).Reduce());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Reduce_a_rational_number_with_a_negative_denominator_to_lowest_terms()
     {
         Assert.Equal(new RationalNumber(-1, 3), new RationalNumber(3, -9).Reduce());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Reduce_zero_to_lowest_terms()
     {
         Assert.Equal(new RationalNumber(0, 1), new RationalNumber(0, 6).Reduce());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Reduce_an_integer_to_lowest_terms()
     {
         Assert.Equal(new RationalNumber(-2, 1), new RationalNumber(-14, 7).Reduce());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Reduce_one_to_lowest_terms()
     {
         Assert.Equal(new RationalNumber(1, 1), new RationalNumber(13, 13).Reduce());
-    }
-
-    [Fact]
-    public void Test_GCD()
-    {
-        Assert.Equal(6, RationalNumber.gcd(48, 18));
     }
 }

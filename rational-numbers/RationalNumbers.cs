@@ -23,8 +23,7 @@ public struct RationalNumber
     {
         var a = (_numerator * r._denominator) + (r._numerator * _denominator);
         var b = _denominator * r._denominator;
-        var gcd = RationalNumber.gcd(Math.Abs(a), Math.Abs(b));
-        return new RationalNumber(a / gcd, b / gcd);
+        return new RationalNumber(a, b).Reduce();
     }
 
     public static RationalNumber operator +(RationalNumber r1, RationalNumber r2)
@@ -36,8 +35,7 @@ public struct RationalNumber
     {
         var a = (_numerator * r._denominator) - (r._numerator * _denominator);
         var b = _denominator * r._denominator;
-        var gcd = RationalNumber.gcd(Math.Abs(a), Math.Abs(b));
-        return new RationalNumber(a / gcd, b / gcd);
+        return new RationalNumber(a, b).Reduce();
     }
 
     public static RationalNumber operator -(RationalNumber r1, RationalNumber r2)
@@ -47,7 +45,9 @@ public struct RationalNumber
 
     public RationalNumber Mul(RationalNumber r)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        var a = _numerator * r._numerator;
+        var b = _denominator * r._denominator;
+        return new RationalNumber(a, b).Reduce();
     }
 
     public static RationalNumber operator *(RationalNumber r1, RationalNumber r2)
@@ -57,7 +57,10 @@ public struct RationalNumber
 
     public RationalNumber Div(RationalNumber r)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        var a = _numerator * r._denominator;
+        var b = r._numerator * _denominator;
+        if (b == 0) throw new ArithmeticException("Division resulted in a denominator of zero");
+        return new RationalNumber(a, b).Reduce();
     }
 
     public static RationalNumber operator /(RationalNumber r1, RationalNumber r2)
@@ -72,7 +75,13 @@ public struct RationalNumber
 
     public RationalNumber Reduce()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        var a = Math.Abs(_numerator);
+        var b = Math.Abs(_denominator);
+        var gcd = RationalNumber.gcd(a, b);
+        
+        // If the rational number is negative, ensure the numerator is negative
+        a = _numerator * _denominator < 0 ? a * -1 : a;
+        return new RationalNumber(a / gcd, b / gcd);
     }
 
     public RationalNumber Exprational(int power)
@@ -85,7 +94,7 @@ public struct RationalNumber
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static int gcd(int a, int b)
+    private static int gcd(int a, int b)
     {
         while (true)
         {
