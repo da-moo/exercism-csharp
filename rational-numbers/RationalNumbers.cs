@@ -70,13 +70,14 @@ public struct RationalNumber
 
     public RationalNumber Abs()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        return new RationalNumber(Math.Abs(_numerator), Math.Abs(_denominator));
     }
 
     public RationalNumber Reduce()
     {
-        var a = Math.Abs(_numerator);
-        var b = Math.Abs(_denominator);
+        var absoluteRational = Abs();
+        var a = absoluteRational._numerator;
+        var b = absoluteRational._denominator;
         var gcd = RationalNumber.gcd(a, b);
         
         // If the rational number is negative, ensure the numerator is negative
