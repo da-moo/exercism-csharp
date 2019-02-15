@@ -28,10 +28,4 @@ public class ResistorColorTest
     {
         Assert.Equal(new[] { "black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white" }, ResistorColor.Colors());
     }
-
-    [Fact]
-    public void InvalidColorTest()
-    {
-        Assert.Throws<ArgumentException>(() => ResistorColor.ColorCode("invalid"));
-    }
 }
