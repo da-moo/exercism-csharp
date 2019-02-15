@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public static class ResistorColor
 {
-    private static readonly List<string> ColorsArray = new List<string>
+    private static readonly List<string> ColorsList = new List<string>
         {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
 
     public static int ColorCode(string color)
     {
-        var code = ColorsArray.IndexOf(color);
+        var code = ColorsList.IndexOf(color);
 
         if (code == -1) throw new ArgumentException($"Invalid color: {color}");
 
@@ -17,6 +17,6 @@ public static class ResistorColor
 
     public static string[] Colors()
     {
-        return ColorsArray.ToArray();
+        return ColorsList.ToArray();
     }
 }
