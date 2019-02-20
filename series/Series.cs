@@ -20,12 +20,12 @@ public static class Series
             throw new ArgumentException($"{nameof(sliceLength)} cannot be less than 1");
         }
 
-        string[] retValStrings = new string[numbers.Length - sliceLength + 1];
+        string[] slices = new string[numbers.Length - sliceLength + 1];
         for (int i = 0; i <= numbers.Length - sliceLength; i++)
         {
-            retValStrings[i] = numbers.Substring(i, sliceLength);
+            slices[i] = numbers.Substring(i, sliceLength);
         }
 
-        return retValStrings;
+        return slices;
     }
 }
