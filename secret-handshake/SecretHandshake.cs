@@ -1,25 +1,30 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 public static class SecretHandshake
 {
-    private static readonly List<(int Number, string Event)> HandshakeEvents = new List<(int Number, string Event)>
+    private const int ReverseValue = 16;
+
+    private static readonly Dictionary<int, string> Decoder = new Dictionary<int, string>
     {
-        (1, "wink"),
-        (2, "double blink"),
-        (4, "close your eyes"),
-        (8, "jump")
+        {1, "wink"},
+        {2, "double blink"},
+        {4, "close your eyes"},
+        {8, "jump"}
     };
 
     public static string[] Commands(int commandValue)
     {
-        var retVal = new List<string>();
+        var decipheredHandShake = Decoder
+            .Where(x => (x.Key & commandValue) != 0)
+            .OrderBy(x => x.Key)
+            .Select(x => x.Value);
 
-        foreach (var (number, @event) in HandshakeEvents)
-            if ((commandValue & number) != 0)
-                retVal.Add(@event);
+        if ((commandValue & ReverseValue) != 0)
+        {
+            return decipheredHandShake.Reverse().ToArray();
+        }
 
-        if ((commandValue & 16) != 0) retVal.Reverse();
-
-        return retVal.ToArray();
+        return decipheredHandShake.ToArray();
     }
 }
